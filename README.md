@@ -28,7 +28,16 @@ sql/        sistema_cotizaciones_completo.sql  (= 01_esquema + 02_datos + 03_pro
 tests/      pruebas automáticas
 ```
 
-## Qué pide el docente y dónde está
+## Características del sistema
+
+| Característica | Descripción |
+|---|---|
+| Aplicativo cliente sin frameworks | `app/` — Tkinter + driver nativo |
+| Operaciones CRUD con borrado lógico | Pestañas Cotizaciones, Clientes, Proveedores, Ítems, Especificaciones. Columna `Activo`; botones *Dar de baja* / *Reactivar* |
+| Procedimientos y triggers | `sql/03_procedimientos.sql` y `sql/04_triggers.sql` |
+| Reportes con JOIN | Pestaña **Reportes**: 12 reportes, 9 con JOIN (R1‑R9). Exportables a CSV |
+| Datos de prueba extensos | 12 clientes, 12 proveedores, 22 ubigeos, 9 especificaciones, 26 ítems, 30 cotizaciones, 118 líneas de detalle |
+
 
 | Requisito | Dónde |
 |---|---|
