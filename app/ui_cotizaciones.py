@@ -63,9 +63,9 @@ class CotizacionesFrame(ttk.Frame):
         form.pack(fill="x")
         self.v = {k: tk.StringVar() for k in ("num", "fecha", "estado", "validez", "plazo", "garantia", "unidad",
                                               "concepto")}
-        self.c_cliente = LookupCombo(form, width=34)
-        self.c_prov = LookupCombo(form, width=34)
-        self.c_esp = LookupCombo(form, width=34)
+        self.c_cliente = LookupCombo(form, width=26)
+        self.c_prov = LookupCombo(form, width=26)
+        self.c_esp = LookupCombo(form, width=26)
         self.c_moneda = LookupCombo(form, width=8)
         self.c_moneda.set_options([("S/.", "S/."), ("USD", "USD")])
 
@@ -81,11 +81,11 @@ class CotizacionesFrame(ttk.Frame):
         add(1, 0, "Cliente *", self.c_cliente)
         add(1, 1, "Proveedor *", self.c_prov)
         add(1, 2, "Especificación *", self.c_esp)
-        add(2, 0, "Validez *", ttk.Entry(form, textvariable=self.v["validez"], width=20))
-        add(2, 1, "Plazo de entrega *", ttk.Entry(form, textvariable=self.v["plazo"], width=20))
-        add(2, 2, "Garantía *", ttk.Entry(form, textvariable=self.v["garantia"], width=20))
+        add(2, 0, "Validez *", ttk.Entry(form, textvariable=self.v["validez"], width=16))
+        add(2, 1, "Plazo de entrega *", ttk.Entry(form, textvariable=self.v["plazo"], width=16))
+        add(2, 2, "Garantía *", ttk.Entry(form, textvariable=self.v["garantia"], width=16))
         add(3, 0, "Moneda *", self.c_moneda)
-        add(3, 1, "Unidad ejecutora *", ttk.Entry(form, textvariable=self.v["unidad"], width=34))
+        add(3, 1, "Unidad ejecutora *", ttk.Entry(form, textvariable=self.v["unidad"], width=26))
         add(3, 2, "Concepto *", ttk.Entry(form, textvariable=self.v["concepto"], width=34))
 
         bar = ttk.Frame(upper)
@@ -111,7 +111,7 @@ class CotizacionesFrame(ttk.Frame):
         dbar = ttk.Frame(box)
         dbar.pack(fill="x", pady=(6, 0))
         ttk.Label(dbar, text="Ítem").pack(side="left")
-        self.d_item = LookupCombo(dbar, width=44)
+        self.d_item = LookupCombo(dbar, width=30)
         self.d_item.pack(side="left", padx=4)
         ttk.Label(dbar, text="Cantidad").pack(side="left")
         self.d_cant = tk.StringVar()

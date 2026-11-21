@@ -41,7 +41,7 @@ class ReportesFrame(ttk.Frame):
     def _build(self):
         left = ttk.LabelFrame(self, text="Reportes", padding=6)
         left.pack(side="left", fill="y")
-        self.listbox = tk.Listbox(left, width=52, height=20, exportselection=False, activestyle="dotbox")
+        self.listbox = tk.Listbox(left, width=44, height=20, exportselection=False, activestyle="dotbox")
         for r in REPORTS:
             self.listbox.insert("end", r[0])
         self.listbox.pack(fill="y", expand=True)
@@ -161,9 +161,9 @@ class ReportesFrame(ttk.Frame):
         self.tree["columns"] = self.last_keys
         for k in self.last_keys:
             texts = [to_text(r[k]) for r in rows[:50]] + [k]
-            width = max(70, min(320, 8 * max(len(t) for t in texts)))
+            width = max(90, min(320, 8 * max([len(t) for t in texts] + [len(k.replace("_", " ")) + 2])))
             self.tree.heading(k, text=k.replace("_", " "))
-            self.tree.column(k, width=width, minwidth=50, anchor="w")
+            self.tree.column(k, width=width, minwidth=50, anchor="w", stretch=False)
         for r in rows:
             self.tree.insert("", "end", values=[to_text(r[k]) for k in self.last_keys])
         self.info.config(text="%d fila(s)" % len(rows))
